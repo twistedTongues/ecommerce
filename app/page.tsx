@@ -1,25 +1,44 @@
-import MainProductSection from "./MainProductSection";
-import MainProductImageSection from "./MainProductImageSection";
-import MainProductDescriptionSection from "./MainProductDescriptionSection";
-import HowItWorksSection from "./HowItWorksSection";
-import DisclaimerSection from "./DisclaimerSection";
-import OurTechnologySection from "./OurTechnologySection";
-import WeSellAlsoSection from "./WeSellAlsoSection";
+import MainProductSection from "./compnonents/MainProductSection";
+import MainProductImageSection from "./compnonents/MainProductImageSection";
+import MainProductDescriptionSection from "./compnonents/MainProductDescriptionSection";
+import HowItWorksSection from "./compnonents/HowItWorksSection";
+import DisclaimerSection from "./compnonents/DisclaimerSection";
+import OurTechnologySection from "./compnonents/OurTechnologySection";
+import WeSellAlsoSection from "./compnonents/WeSellAlsoSection";
+import { client } from "@/sanity/lib/client";
+import { Product } from "@/typings";
 
-export default function Home() {
+const query = `*[_type == "product" && mainProduct == true][0]`;
+
+export default async function Home() {
+  const mainProduct: Product = await client.fetch(query);
+  console.log(mainProduct);
   return (
     <div className="space-y-5">
-      <MainProductSection
-        productName={"Smart tracker for tracking the location of pets"}
-        price={350}
-        slogan={"Your pet is always here"}
+      <div className="grid gap-5 lg:grid-cols-2">
+        <MainProductSection
+          mainProduct={mainProduct}
+        />
+        <MainProductImageSection
+          mainProduct={mainProduct}
+        />
+
+        <MainProductDescriptionSection
+          mainProduct={mainProduct}
+        />
+        <HowItWorksSection
+          mainProduct={mainProduct}
+        />
+
+        <DisclaimerSection
+          product={mainProduct}
+        />
+        <OurTechnologySection
+          product={mainProduct}
+        />
+      </div>
+      <WeSellAlsoSection
       />
-      <MainProductImageSection />
-      <MainProductDescriptionSection />
-      <HowItWorksSection />
-      <DisclaimerSection />
-      <OurTechnologySection />
-      <WeSellAlsoSection />
     </div>
   );
 }

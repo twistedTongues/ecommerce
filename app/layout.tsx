@@ -1,8 +1,9 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Header from "./Header";
-import Footer from "./Footer";
-import CTA from "./CTA";
+import Header from "./compnonents/Header";
+import Footer from "./compnonents/Footer";
+import CTA from "./compnonents/CTA";
+import Cart from "./compnonents/Provider/Cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,12 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Cart>
         <Header />
         <main className="max-w-screen-xl mx-auto p-5"> 
         {children}
         </main>
         <CTA />
         <Footer />
+        </Cart>
       </body>
     </html>
   );

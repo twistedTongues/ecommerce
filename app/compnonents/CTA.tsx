@@ -18,8 +18,8 @@ const CTA = () => {
               aria-hidden="true"
             >
               <path
-                clip-rule="evenodd"
-                fill-rule="evenodd"
+                clipRule="evenodd"
+                fillRule="evenodd"
                 d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm2.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6.207.293a1 1 0 00-1.414 0l-6 6a1 1 0 101.414 1.414l6-6a1 1 0 000-1.414zM12.5 10a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
               >
               </path>
@@ -30,12 +30,12 @@ const CTA = () => {
             Get 5% commision per sale{" "}
             <Link
               href="/contact"
-              className="flex items-center ml-0 text-sm font-medium text-blue-600 md:ml-1 md:inline-flex hover:underline"
+              className="flex items-center ml-0 text-sm font-medium text-rose-600 md:ml-1 md:inline-flex hover:underline"
             >
               Become a partner{" "}
               <svg
                 aria-hidden="true"
-                className="w-4 h-4 ml-1 text-blue-600 "
+                className="w-4 h-4 ml-1 text-rose-600 "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,9 +65,9 @@ const CTA = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             >
             </path>
           </svg>
