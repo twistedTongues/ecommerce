@@ -1,14 +1,12 @@
 import { urlForImage } from "@/sanity/lib/image";
+import { Image as TImage } from "@/typings";
 import Image from "next/image";
-import {
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { useLayoutEffect, useRef } from "react";
 
 type Props = {
   open: boolean;
   onClose: () => void;
-  image: Image;
+  image: TImage;
 };
 
 export const Modal = ({ open, onClose, image }: Props) => {
@@ -16,15 +14,15 @@ export const Modal = ({ open, onClose, image }: Props) => {
 
   useLayoutEffect(() => {
     const closeListenerFnc = () => {
-      onClose && onClose()
-    }
+      onClose && onClose();
+    };
 
     const dialogRef = ref.current;
-    dialogRef?.addEventListener('close', closeListenerFnc)
+    dialogRef?.addEventListener("close", closeListenerFnc);
     return () => {
-      dialogRef?.removeEventListener('close', closeListenerFnc)
-    }
-  }, [onClose])
+      dialogRef?.removeEventListener("close", closeListenerFnc);
+    };
+  }, [onClose]);
 
   useLayoutEffect(() => {
     if (open && !ref.current?.open) {
@@ -50,13 +48,13 @@ export const Modal = ({ open, onClose, image }: Props) => {
         }
       }}
     >
-          <Image
-            priority
-            className="object-cover h-auto max-w-full rounded-lg drop-shadow-xl"
-            src={urlForImage(image).url()}
-            fill
-            alt=""
-          />
+      <Image
+        priority
+        className="object-cover h-auto max-w-full rounded-lg drop-shadow-xl"
+        src={urlForImage(image).url()}
+        fill
+        alt=""
+      />
     </dialog>
   );
 };
