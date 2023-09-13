@@ -51,7 +51,7 @@ export const Modal = ({ open, onClose, image }: Props) => {
       <Image
         priority
         className="object-cover h-auto max-w-full rounded-lg drop-shadow-xl"
-        src={urlForImage(image).url()}
+        src={urlForImage({ ...image }).url()}
         fill
         alt=""
       />
