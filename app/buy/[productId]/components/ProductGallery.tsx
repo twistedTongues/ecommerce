@@ -15,6 +15,7 @@ const ProductGallery = ({ product }: Props) => {
   const { addItem } = useShoppingCart();
 
   const addToCart = () => {
+    // @ts-ignore
     addItem(product);
   };
 
