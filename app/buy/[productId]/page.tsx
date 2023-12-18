@@ -10,7 +10,7 @@ import { client } from "@/sanity/lib/client";
 //   params:
 // }
 
-async function ProductPage({ params }) {
+async function ProductPage({ params }: { params: { productId: string } }) {
   const query = `*[_type == "product" && _id == '${params.productId}'][0]`;
   const product: Product = await client.fetch(query);
 

@@ -14,6 +14,7 @@ const MainProductSection = ({ mainProduct }: Props) => {
 
   const addToCart = () => {
     // addItem(productsStripe[2]);
+    // @ts-ignore
     addItem(mainProduct);
   };
   return (
